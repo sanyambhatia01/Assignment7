@@ -1,0 +1,51 @@
+<div>
+    <div>
+<fieldset>
+    <legend>Information-Form:</legend>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+
+    First Name : <input type="text" placeholder="First Name" ngModel name="fname" #fname="ngModel" required><br>
+    
+    <div class="a" *ngIf="!fname.valid && fname.touched">First Name Required</div><br>
+
+    Last Name: <input type="text" placeholder="Last Name" ngModel name="lname" #lname="ngModel" required><br>
+    
+    <div class="a" *ngIf="!lname.valid && lname.touched">Last Name Required</div><br>
+
+    Email: <input type="email" placeholder="Email" ngModel name="email" required #email="ngModel" required><br>
+    
+    <div class="a" *ngIf="!email.valid && email.touched">Email Required</div><br>
+
+    Phone Number: <input type="number" placeholder="Phone Number" ngModel name="phone" #phone="ngModel" required><br>
+    
+    <div class="a" *ngIf="!phone.valid && phone.touched" >Phone number Required</div><br>
+
+    Address: <input type="text" placeholder="Address" ngModel name="address" #address="ngModel" required><br>
+    
+    <div class="a" *ngIf="!address.valid && address.touched">Address Required</div><br>
+
+    City: <input type="text" placeholder="City Name" ngModel name="cityname" #cityname="ngModel" required><br>
+    
+    <div class="a" *ngIf="!cityname.valid && cityname.touched" >City name Required</div><br>
+
+    State: <input type="text" placeholder="State Name" ngModel name="state" #state="ngModel" required><br>
+
+    <div class="a" *ngIf="!state.valid && state.touched">State Name Required</div><br>
+
+    PinCode: <input type="number" placeholder="PinCode" ngModel name="pin" #pin="ngModel" required><br>
+    
+    <div class="a" *ngIf="!pin.valid && pin.touched">Pincode Required</div><br>
+
+    <button type="submit" [disabled]="!f.valid">Submit</button>
+</form>
+</fieldset>
+</div>
+<hr>
+<div *ngIf="isClicked">
+    Full Name: {{formdata.fname}} {{formdata.lname}}<br>
+    Email Address: {{formdata.email}}<br>
+    Phone Number: {{formdata.phone}}<br>
+    Full Address: {{formdata.address}}, {{formdata.cityname}}, {{formdata.state}}<br>
+    PinCode: {{formdata.pin}}
+</div>
+</div>
